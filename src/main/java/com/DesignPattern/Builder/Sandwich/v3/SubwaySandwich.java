@@ -15,6 +15,8 @@ public class SubwaySandwich {
         // validate(b);
         this.bread = b.bread;
         this.condiments = b.condiments;
+        this.fillings = b.fillings;
+        this.veggies = b.veggies;
         // ...
     }
 
