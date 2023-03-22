@@ -84,4 +84,61 @@ How to come up with a class diagram?
 1. Visualization - Games, Entity (Non Machine coding)
 2. Finding nouns via requirements - (Machine Coding)
 ```
-To be continued after I learn factory Design pattern
+- Class Diagram left for pen
+---
+### Schema Design
+```
+How to approach schema design?
+
+Step 1: For all the classes, create a table.
+
+Step 2: For each class, put its primitive attributes as columns in the table.
+
+    - class Ticket{
+        int id;
+        Date timeofBooking;
+        List<Seat> seats;
+        User bookedBy;
+        int timeofBooking;
+    }
+
+    Ticket Table
+    ----------------------------------------
+    | id      | timeofBooking | amount     |
+    ----------------------------------------
+
+Step 3: For every relation 
+        - Find the cardinality of relation
+        - Based on cardinality, represent the relation
+```
+
+    *Schema Design not needed for Pen.
+
+---
+### Code
+```
+How to code?
+- Project structure ( Structure your codebase )
+- Atleast something must be running
+
+Step 1: Code all the models ( Classes in a class diagram )
+
+Step 2: Go requirement by requirement.
+        Code all the classes etc that might be needed to implement a particular funtionality. 
+```
+
+```
+Customer       ----> Waiter      ----> Chef     ----> Fridge                ----> Ingredient
+
+User/Frontend  ----> Controller  ----> Service  ----> Database/Repositories  ----> Models
+```
+
+```
+Models -> All the classes in a class diagram.
+
+Repositories -> All the classes that query the database.
+
+Service -> All the classes that will going to do hardwork.
+
+Controller -> All the classes that have APIs.
+```
