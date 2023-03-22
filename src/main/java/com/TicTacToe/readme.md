@@ -63,15 +63,15 @@ classDiagram
     
     Board -- Cell
     class Board{
-        - List< List< Cell>> Cells
+        - List< List< Cell>> board
     }
 
     Cell -- CellStatus
     Cell -- Player
 
     class Cell{
-        - int x
-        - int y
+        - int row
+        - int col
         - Player player
         - CellStatus cellStatus
     }
@@ -101,7 +101,7 @@ classDiagram
     Bot -- BotPlayingStrategy
 
     class Bot{
-        - DifficultyLevel level
+        - DifficultyLevel botDifficultylevel
     }
 
     class DifficultyLevel{
