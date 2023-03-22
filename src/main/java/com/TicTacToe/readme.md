@@ -22,7 +22,7 @@
 ### Clarifying Requirements
 ```
 Ex: How will game start?
-    How many undo moves a player can make. 
+    How many undo moves a player can make?
 ```
 
 
@@ -32,30 +32,119 @@ Ex: How will game start?
 ```mermaid
 classDiagram
 
+    Game -- Board
+    Game -- Move
+    Game -- GameStatus
+    Game -- Player
+    Game -- GameWinningStrategy
+
+    class Game{
+        - Board board
+        - List< Move> moves
+        - List< Player> players
+        - GameStatus gameStatus
+        - nextPlayerIndex
+    }
+
+    Move -- Player
+    Move -- Cell
+
+    class Move{
+        - Player player
+        - Cell cell
+    }
+
+    class GameStatus{
+        <<enumeration>>
+        IN_PROGRESS
+        DRAW
+        ENDED
+    }
+    
+    Board -- Cell
     class Board{
         - List< List< Cell>> Cells
     }
+
+    Cell -- CellStatus
+    Cell -- Player
 
     class Cell{
         - int x
         - int y
         - Player player
+        - CellStatus cellStatus
     }
 
+    class CellStatus{
+        <<enumeration>>
+        EMPTY
+        FILLED
+        BLOCKED
+    }
+
+    Player -- PlayerType
+    Player <|-- Bot
     class Player{
         - string name
         - char symbol
         - PlayerType type
     }
 
+    class PlayerType{
+        <<enumeration>>
+        HUMAN
+        BOT
+    }
+
+    Bot -- DifficultyLevel
+    Bot -- BotPlayingStrategy
+
     class Bot{
+        - DifficultyLevel level
+    }
+
+    class DifficultyLevel{
+        <<enumeration>>
+        EASY
+        MEDIUM
+        HARD
+    }
+
+    class GameWinningStrategy{
+        <<interface>>
+    }
+
+    class RowWinningStrategy{
+
+    }
+    class ColumnWinningStrategy{
+
+    }
+    class DiagonalWinningStrategy{
 
     }
 
-    class Human{
-
+    class BotPlayingStrategy{
+        <<interface>>
     }
 
+    class EasyBotPlayingStrategy{   
+    }
+
+    class MediumBotPlayingStrategy{   
+    }
+
+    class HardBotPlayingStrategy{   
+    }
+
+    BotPlayingStrategy <|.. EasyBotPlayingStrategy
+    BotPlayingStrategy <|.. MediumBotPlayingStrategy
+    BotPlayingStrategy <|.. HardBotPlayingStrategy
+
+    GameWinningStrategy <|.. RowWinningStrategy
+    GameWinningStrategy <|.. ColumnWinningStrategy
+    GameWinningStrategy <|.. DiagonalWinningStrategy
 ```
 
 
@@ -63,7 +152,7 @@ classDiagram
 ---
 ### Schema Design
 ```
-
+Not needed in this.
 ```
 
 
