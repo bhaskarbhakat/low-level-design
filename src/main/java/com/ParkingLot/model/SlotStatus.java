@@ -1,4 +1,4 @@
-package com.ParkingLot;
+package com.ParkingLot.model;
 
 public class SlotStatus {
     
