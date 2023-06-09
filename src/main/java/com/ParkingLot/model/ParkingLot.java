@@ -3,7 +3,7 @@ package com.ParkingLot.model;
 import java.util.List;
 
 public class ParkingLot {
-    private String name;
+    private String id;
     private String address;
     private List<EntryGate> entryGates;
     private List<ExitGate> exitGates;
@@ -11,11 +11,11 @@ public class ParkingLot {
     private Integer numberOfFloors;
     private Integer numberOfSlotsPerFloor;
 
-    public String getName() {
-        return name;
+    public String getId() {
+        return id;
     }
-    public void setName(String name) {
-        this.name = name;
+    public void setId(String id) {
+        this.id = id;
     }
     public String getAddress() {
         return address;
@@ -53,5 +53,4 @@ public class ParkingLot {
     public void setNumberOfSlotsPerFloor(Integer numberOfSlotsPerFloor) {
         this.numberOfSlotsPerFloor = numberOfSlotsPerFloor;
     }
-
 }
