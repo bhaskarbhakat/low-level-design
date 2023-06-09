@@ -17,6 +17,10 @@ public class ParkingLotApplication {
         while(true){
             String input = sc.nextLine();
             String result[] = input.split(" ");
+            ParkingLotRepository parkingLotRepository = new ParkingLotRepository();
+            ParkingLotService parkingLotService = new ParkingLotService(parkingLotRepository);
+            ParkingLotController parkingLotController = new ParkingLotController(parkingLotService);
+            ParkingLot parkingLot;
             
             if (result[0].equals("create_parking_lot")) {
                 String id = result[1];
@@ -26,18 +30,19 @@ public class ParkingLotApplication {
                 request.setId(id);
                 request.setNumberOfFloors(numberOfFloors);
                 request.setNumberOfSlotsPerFloor(numberOfSlotsPerFloor);
-                ParkingLotRepository parkingLotRepository = new ParkingLotRepository();
-                ParkingLotService parkingLotService = new ParkingLotService(parkingLotRepository);
-                ParkingLotController parkingLotController = new ParkingLotController(parkingLotService);
-                ParkingLot parkingLot = parkingLotController.createParkingLot(request);
-                System.out.println(parkingLot.getAddress());
-                System.out.println(parkingLot.getFloors());
-                System.out.println(parkingLot.getNumberOfFloors());
-                System.out.println(parkingLot.getNumberOfSlotsPerFloor());
-
+                parkingLot = parkingLotController.createParkingLot(request);
+                System.out.println("Created parking lot with " + parkingLot.getNumberOfFloors() + " floors and " + parkingLot.getNumberOfSlotsPerFloor() + " slots per floor");
             }
             else if(result[0].equals("display") && result[1].equals("free_count")){
-                
+                if(result[2].equals("CAR")){
+                    
+                }
+                else if(result[2].equals("BIKE")){
+
+                }
+                else if(result[2].equals("TRUCK")){
+
+                }
             }
             else if(result[0].equals("display") && result[1].equals("free_slots")){
                 

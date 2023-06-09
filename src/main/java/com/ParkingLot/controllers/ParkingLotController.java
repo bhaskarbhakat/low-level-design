@@ -19,7 +19,6 @@ public class ParkingLotController {
             request.getNumberOfSlotsPerFloor());
     }
 
-
     // 2. Update Parking Lot
     // 3. Read Parking Lot
     // 4. Delete Parking Lot
