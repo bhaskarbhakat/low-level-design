@@ -29,8 +29,12 @@ public class ParkingLotApplication {
                 ParkingLotRepository parkingLotRepository = new ParkingLotRepository();
                 ParkingLotService parkingLotService = new ParkingLotService(parkingLotRepository);
                 ParkingLotController parkingLotController = new ParkingLotController(parkingLotService);
-                parkingLotController.createParkingLot(request);
-                
+                ParkingLot parkingLot = parkingLotController.createParkingLot(request);
+                System.out.println(parkingLot.getAddress());
+                System.out.println(parkingLot.getFloors());
+                System.out.println(parkingLot.getNumberOfFloors());
+                System.out.println(parkingLot.getNumberOfSlotsPerFloor());
+
             }
             else if(result[0].equals("display") && result[1].equals("free_count")){
                 

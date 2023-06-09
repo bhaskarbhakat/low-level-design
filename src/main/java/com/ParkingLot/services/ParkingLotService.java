@@ -27,7 +27,7 @@ public class ParkingLotService {
         parkingLot.setEntryGates(null);
         parkingLot.setExitGates(null);
         parkingLot.setFloors(null);
-        System.out.println("Created parking lot with " + parkingLot.getNumberOfFloors() + " floors and " + parkingLot.getNumberOfFloors() + " slots per floor");
+        System.out.println("Created parking lot with " + parkingLot.getNumberOfFloors() + " floors and " + parkingLot.getNumberOfSlotsPerFloor() + " slots per floor");
         return parkingLotRepository.save(parkingLot);
     }
     
