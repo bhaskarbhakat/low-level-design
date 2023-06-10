@@ -60,16 +60,34 @@ public class ParkingLotService {
     }
     
     public void displayFloorBoard(Floor parkingFloor, String displayType, VehicleType vehicleType){
-
+        Mapping util = new Mapping();
         switch (displayType){
             case "free_count":
                 int count=0;
-                Mapping util = new Mapping();
                 for (ParkingSpot spot: parkingFloor.getParkingSpots()){
                     if(spot.getSpotStatus() == SpotStatus.AVAILABLE&& (spot.getSpotType() == (util.getVehicleToSpotTypeMapping().get(vehicleType))))    count++;
                 }
                 System.out.println("No. of free slots for " + vehicleType.toString() + " on Floor "+ parkingFloor.getFloorNumber() +": "+ count);
                 break;
+            case "free_slots":
+                System.out.print("Free slots for "+ vehicleType + " on Floor " + parkingFloor.getFloorNumber() +": ");
+                for (ParkingSpot spot: parkingFloor.getParkingSpots()){
+                    if(spot.getSpotStatus() == SpotStatus.AVAILABLE&& (spot.getSpotType() == (util.getVehicleToSpotTypeMapping().get(vehicleType)))){
+                        System.out.print(spot.getSpotNumber()+" ");
+                    }
+                }
+                System.out.println();
+                break;
+            case "occupied_slots":
+                System.out.print("Occupied slots for "+ vehicleType + " on Floor " + parkingFloor.getFloorNumber() +": ");
+                for (ParkingSpot spot: parkingFloor.getParkingSpots()){
+                    if(spot.getSpotStatus() == SpotStatus.OCCUPIED && (spot.getSpotType() == (util.getVehicleToSpotTypeMapping().get(vehicleType)))){
+                        System.out.print(spot.getSpotNumber());
+                    }
+                }
+                System.out.println();
+                break;
+
         }
     }
     

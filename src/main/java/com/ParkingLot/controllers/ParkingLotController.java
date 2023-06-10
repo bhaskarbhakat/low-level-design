@@ -40,12 +40,10 @@ public class ParkingLotController {
                     parkingLotService.displayFloorBoard(parkingFloor, displayType, VehicleType.CAR);
                     break;
                 case "BIKE":
-                    // System.out.println("Free slots for "+ vehicleType + " on Floor " + parkingFloor.getFloorNumber() +": ");
-                    // parkingLotService.displayFloorBoard(parkingFloor, displayType, vehicleType);
+                    parkingLotService.displayFloorBoard(parkingFloor, displayType, VehicleType.BIKE);
                     break;
                 case "TRUCK":
-                    // System.out.println("Occupied slots for "+ vehicleType + " on Floor " + parkingFloor.getFloorNumber() +": ");
-                    // parkingLotService.displayFloorBoard(parkingFloor, displayType, vehicleType);
+                    parkingLotService.displayFloorBoard(parkingFloor, displayType, VehicleType.TRUCK);
                     break;
             }
         }

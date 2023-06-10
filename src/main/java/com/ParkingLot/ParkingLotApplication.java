@@ -23,7 +23,7 @@ public class ParkingLotApplication {
         request.setNumberOfSlotsPerFloor(Integer.parseInt(cmd[3]));
 
         ParkingLot parkingLot = parkingLotController.createParkingLot(request);
-
+        
         outerloop:
         while(true){
             String[] command = br.nextLine().split(" ");
