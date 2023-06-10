@@ -1,0 +1,16 @@
+package com.ParkingLot.utils;
+
+import java.util.HashMap;
+
+import com.ParkingLot.model.SpotType;
+import com.ParkingLot.model.VehicleType;
+
+public class Mapping {
+        HashMap<VehicleType, SpotType> vehicleToSpotTypeMapping = new HashMap<VehicleType, SpotType>();
+        public HashMap<VehicleType, SpotType> getVehicleToSpotTypeMapping() {
+            vehicleToSpotTypeMapping.put(VehicleType.BIKE,SpotType.SMALL);
+            vehicleToSpotTypeMapping.put(VehicleType.CAR,SpotType.MEDIUM);
+            vehicleToSpotTypeMapping.put(VehicleType.TRUCK,SpotType.LARGE);
+            return vehicleToSpotTypeMapping;
+        }
+}

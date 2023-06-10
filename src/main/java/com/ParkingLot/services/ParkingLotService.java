@@ -2,7 +2,7 @@ package com.ParkingLot.services;
 
 import java.util.LinkedList;
 import java.util.List;
-
+import com.ParkingLot.utils.Mapping;
 import com.ParkingLot.model.EntryGate;
 import com.ParkingLot.model.ExitGate;
 import com.ParkingLot.model.Floor;
@@ -10,6 +10,7 @@ import com.ParkingLot.model.ParkingLot;
 import com.ParkingLot.model.ParkingSpot;
 import com.ParkingLot.model.SpotStatus;
 import com.ParkingLot.model.SpotType;
+import com.ParkingLot.model.VehicleType;
 import com.ParkingLot.repository.ParkingLotRepository;
 
 public class ParkingLotService {
@@ -58,4 +59,19 @@ public class ParkingLotService {
         return parkingLotRepository.save(parkingLot);
     }
     
+    public void displayFloorBoard(Floor parkingFloor, String displayType, VehicleType vehicleType){
+
+        switch (displayType){
+            case "free_count":
+                int count=0;
+                Mapping util = new Mapping();
+                for (ParkingSpot spot: parkingFloor.getParkingSpots()){
+                    if(spot.getSpotStatus() == SpotStatus.AVAILABLE&& (spot.getSpotType() == (util.getVehicleToSpotTypeMapping().get(vehicleType))))    count++;
+                }
+                System.out.println("No. of free slots for " + vehicleType.toString() + " on Floor "+ parkingFloor.getFloorNumber() +": "+ count);
+                break;
+        }
+    }
+    
+
 }
