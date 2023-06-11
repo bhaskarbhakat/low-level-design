@@ -1,19 +1,14 @@
 package com.ParkingLot.model;
 
-public class Vehicle {
-    private String number;
-    private VehicleType vehicleType;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
-    public String getNumber() {
-        return number;
-    }
-    public void setNumber(String number) {
-        this.number = number;
-    }
-    public VehicleType getVehicleType() {
-        return vehicleType;
-    }
-    public void setVehicleType(VehicleType vehicleType) {
-        this.vehicleType = vehicleType;
-    }
+@Getter
+@Setter
+@AllArgsConstructor
+public class Vehicle {
+    private VehicleType vehicleType;
+    private String number;
+    private String color;
 }

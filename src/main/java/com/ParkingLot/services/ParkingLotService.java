@@ -3,8 +3,6 @@ package com.ParkingLot.services;
 import java.util.LinkedList;
 import java.util.List;
 import com.ParkingLot.utils.Mapping;
-import com.ParkingLot.model.EntryGate;
-import com.ParkingLot.model.ExitGate;
 import com.ParkingLot.model.Floor;
 import com.ParkingLot.model.ParkingLot;
 import com.ParkingLot.model.ParkingSpot;
@@ -30,9 +28,6 @@ public class ParkingLotService {
         parkingLot.setNumberOfSlotsPerFloor(numberOfSlotsPerFloor);
 
         List<Floor> floors = new LinkedList<>();
-        List<EntryGate> entryGates = new LinkedList<>();
-        List<ExitGate> exitGates = new LinkedList<>();
-
         for(int i=0;i<numberOfFloors;i++){
             List<ParkingSpot> spots = new LinkedList<>();
             
