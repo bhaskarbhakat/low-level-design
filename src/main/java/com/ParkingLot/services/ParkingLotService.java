@@ -77,7 +77,7 @@ public class ParkingLotService {
                 System.out.print("Occupied slots for "+ vehicleType + " on Floor " + parkingFloor.getFloorNumber() +": ");
                 for (ParkingSpot spot: parkingFloor.getParkingSpots()){
                     if(spot.getSpotStatus() == SpotStatus.OCCUPIED && (spot.getSpotType() == (util.getVehicleToSpotTypeMapping().get(vehicleType)))){
-                        System.out.print(spot.getSpotNumber());
+                        System.out.print(spot.getSpotNumber()+" ");
                     }
                 }
                 System.out.println();

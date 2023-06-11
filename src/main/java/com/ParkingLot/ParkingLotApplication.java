@@ -6,12 +6,14 @@ import com.ParkingLot.controllers.ParkingLotController;
 import com.ParkingLot.controllers.TicketController;
 import com.ParkingLot.dtos.CreateParkingLotRequestDto;
 import com.ParkingLot.dtos.CreateTicketRequestDto;
+import com.ParkingLot.dtos.DeleteTicketRequestDto;
 import com.ParkingLot.model.ParkingLot;
 import com.ParkingLot.model.Vehicle;
 import com.ParkingLot.repository.ParkingLotRepository;
 import com.ParkingLot.repository.TicketRepository;
 import com.ParkingLot.services.ParkingLotService;
 import com.ParkingLot.services.TicketService;
+import com.ParkingLot.strategies.spotAssignment.FindFirstAvailableStrategy;
 import com.ParkingLot.utils.Mapping;
 
 public class ParkingLotApplication {
@@ -33,7 +35,7 @@ public class ParkingLotApplication {
         ParkingLot parkingLot = parkingLotController.createParkingLot(request);
 
         TicketRepository ticketRepository = new TicketRepository(parkingLot);
-        TicketService ticketService = new TicketService(ticketRepository);
+        TicketService ticketService = new TicketService(ticketRepository, new FindFirstAvailableStrategy(), parkingLot);
         TicketController ticketController = new TicketController(ticketService);
         
         outerloop:
@@ -51,6 +53,10 @@ public class ParkingLotApplication {
                     ticketController.createTicket(ticketRequestDto);
                     break;
                 case "unpark_vehicle":
+                    DeleteTicketRequestDto deleteTicketRequestDto = new DeleteTicketRequestDto();
+                    deleteTicketRequestDto.setTicketId(command[1]);
+
+                    ticketController.deleteTicket(deleteTicketRequestDto);
                     break;
                 case "display":
                     parkingLotController.displayBoard(parkingLot, command[1], command[2]);

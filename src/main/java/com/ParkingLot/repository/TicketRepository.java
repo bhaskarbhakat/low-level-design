@@ -16,9 +16,9 @@ public class TicketRepository {
 
     private Map<String, Ticket> tickets = new HashMap<>();
     public Ticket save(Ticket ticket){
-        String str1 =  parkingLot.getId();;
-        String str2 = Integer.toString(4);
-        String str3 = Integer.toString(5); 
+        String str1 =  parkingLot.getId();
+        String str2 = Integer.toString(ticket.getParkingSpot().getFloorNumber());
+        String str3 = Integer.toString(ticket.getParkingSpot().getSpotNumber()); 
 
         ticket.setId(str1.concat("_").concat(str2).concat("_").concat(str3));
         tickets.put(ticket.getId(), ticket);
@@ -28,6 +28,10 @@ public class TicketRepository {
 
     public Ticket getTicketById(String id){
         return tickets.get(id);
+    }
+
+    public void delete(String id){
+        tickets.remove(id);
     }
 
 }

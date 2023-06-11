@@ -1,7 +1,5 @@
 package com.ParkingLot.controllers;
 
-import java.util.List;
-
 import com.ParkingLot.dtos.CreateParkingLotRequestDto;
 import com.ParkingLot.model.Floor;
 import com.ParkingLot.model.ParkingLot;
