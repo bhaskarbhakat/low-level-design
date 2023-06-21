@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.List;
 
 public class Show {
+    private Screen screen;
     private Movie movie;
     private Date startTime;
     private Date endTime;
